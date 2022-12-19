@@ -7,7 +7,7 @@ var question = [
     answer: "yes",
   },
   {
-    question: "Where do Nazeem lives",
+    question: "Where do Afrid lives",
     answer: "Saudi",
   },
   {
