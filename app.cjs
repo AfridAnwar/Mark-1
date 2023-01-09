@@ -1,60 +1,86 @@
-var readlinesync = require("readline-sync");
-var score = 0;
-// data structure
-var question = [
-  {
-    question: "Do you know Afrid ",
-    answer: "yes",
-  },
-  {
-    question: "Where do Afrid lives",
-    answer: "Saudi",
-  },
-  {
-    question: "what is the highest qualification Afrid completed ",
-    answer: "BCA",
-  },
-  {
-    question: "Where did Afrid completed his degree ",
-    answer: "Mangalore",
-  },
-  {
-    question: "how good is afrid with computer in a scale of :(1 to 10 ) ",
-    answer: "5",
-  },
-];
 
-function welcome() {
-  var userName = readlinesync.question("what is your name ");
-  console.log("Hey " + userName + "Welcome to DO YOU KNOW AFRID (@_@) ");
-}
+var a =require('readline-sync');
+var score=0; 
+ 
+var username=a.question("Whats your name?");
+console.log(" Welcome "+username+"  ");
+//  play function
+  
+  function play(question,answer){
+    var useranswer=a.question(question);
+   
+    if (useranswer.toUpperCase()===answer.toUpperCase()){
+      console.log("right!");
+      score=score+1;
 
-function quiz(question, answer) {
-  var current_answer = readlinesync.question(question);
+    }else{
+      console.log("wrong!!");
+    
+    }
+    console.log("currentscore:",score);
+    console.log("---------");
+ }
+  // array of objects
+   var question=[{
+     question:"Is Saudi Arabia a GCC countrie?",
+     answer:"yes"
+   },{
+     question:"Who is the king of Saudi Arabia?",
+     answer:"salman"
+   },{
+     question:"Capital of Saudi Arabia?",
+     answer:"riyadh"
+   },{
+     question:"can ladies drive in Saudi Arabia?",
+     answer:"yes"
+    
+   },{
+     question:"what do Arabs like the most?",
+     answer:"cars"
+   },{
+     question:"Is there overspeed cameras in Saudi arabia?",
+     answer:"yes"
+   },{
+     question:"What is the overspeed limit in highways?",
+     answer:"140"
+   },{
+     question:"Is there a lulu in Saudi Arabia?",
+     answer:"yes"
+   }];
+    var highscore=[{
+        name:"henry",
+       score:"8"
+    },{
+        name:"khalid",
+        score:"3"
 
-  if (current_answer.toUpperCase() === answer.toUpperCase()) {
-    console.log("true");
-    score++;
-  } else {
-    console.log("false");
-  }
-}
+ },{
+    name:"firoz",
+    score:"5"
+ }];
+   
+   
+  // loop
+   for(var i=0;i<question.length;i++){
+     var currentquestion=question[i];
+     play(currentquestion.question,currentquestion.answer);
 
-function play() {
-  for (var i = 0; i < question.length; i++) {
-    var value1 = question[i];
-    quiz(value1.question, value1.answer);
-  }
-}
+   }
+   function high(){
 
-function final_score() {
-  console.log("-----------------------------");
-  console.log("Thank you for playing the quiz ");
-  console.log("Final : " + score);
-  console.log("===================================");
-}
-
-// calling the function
-welcome();
-play();
-final_score();
+     console.log("Thank you for playing this your final score is:"+score);
+     for (var i=0;i<highscore.length;i++){
+        var s=highscore[i];
+     }
+      if (score>s.score){
+        console.log("you have beaten the best score");
+        // extra
+        console.log("henry"+s.score+" and you have scored full"+score );
+      }else{
+        console.log("you couldnt beat the best score");
+      }
+     
+   }
+  high();
+  play();
+  
